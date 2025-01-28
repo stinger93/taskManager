@@ -15,6 +15,7 @@ public class TaskManager {
         tasks.removeIf(task -> task.getId() == id);
     }
 
+    //отметка задачи, как выполненой
     public void markTaskAsCompleted(int id){
         for (Task task : tasks ){
             if (task.getId() == id){
@@ -24,4 +25,32 @@ public class TaskManager {
         }
     }
 
+    // Получение списка всех задач
+    public List<Task> getAllTasks(){
+        return tasks;
+    }
+
+    // Получение списка активных задач
+    public List<Task> getActiveTasks() {
+        List<Task> activeTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (!task.isCompleted()) {
+                activeTasks.add(task);
+            }
+        }
+        return activeTasks;
+    }
+
+    public List<Task> getCompletedTasks() {
+        List<Task> completedTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.isCompleted()) {
+                completedTasks.add(task);
+            }
+        }
+        return completedTasks;
+    }
 }
+
+
+
