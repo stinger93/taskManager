@@ -1,16 +1,15 @@
 public class Task {
     private int id;
     private String description;
-    public boolean isCompleted;
+    private boolean isCompleted;
 
-    public Task (int id, String description){
+    public Task(int id, String description) {
         this.id = id;
         this.description = description;
-        this.isCompleted = false; //Поумолчанияю не выоплнено
+        this.isCompleted = false; // По умолчанию задача не выполнена
     }
 
-    //Геттеры и Сеттеры
-
+    // Геттеры и сеттеры
     public int getId() {
         return id;
     }
@@ -28,12 +27,11 @@ public class Task {
     }
 
     @Override
-    public String toStirng(){
+    public String toString() {
         return "Task{" +
                 "id=" + id +
-                ", description=' " + description  + '\'' +
+                ", description='" + description + '\'' +
                 ", isCompleted=" + isCompleted +
                 '}';
     }
-
 }

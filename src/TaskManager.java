@@ -3,22 +3,28 @@ import java.util.List;
 
 public class TaskManager {
     private List<Task> tasks;
-    private int nexId;
+    private int nextId;
 
-    public TaskManager(){
+    public TaskManager() {
         tasks = new ArrayList<>();
-        nexId = 1;
+        nextId = 1;
     }
 
-    //удаление задачи по id
-    public void removeTask(int id){
+    // Добавление задачи
+    public void addTask(String description) {
+        Task task = new Task(nextId++, description);
+        tasks.add(task);
+    }
+
+    // Удаление задачи по ID
+    public void removeTask(int id) {
         tasks.removeIf(task -> task.getId() == id);
     }
 
-    //отметка задачи, как выполненой
-    public void markTaskAsCompleted(int id){
-        for (Task task : tasks ){
-            if (task.getId() == id){
+    // Отметка задачи как выполненной
+    public void markTaskAsCompleted(int id) {
+        for (Task task : tasks) {
+            if (task.getId() == id) {
                 task.setCompleted(true);
                 break;
             }
@@ -26,7 +32,7 @@ public class TaskManager {
     }
 
     // Получение списка всех задач
-    public List<Task> getAllTasks(){
+    public List<Task> getAllTasks() {
         return tasks;
     }
 
@@ -41,7 +47,7 @@ public class TaskManager {
         return activeTasks;
     }
 
-    //список выполненых задач
+    // Получение списка выполненных задач
     public List<Task> getCompletedTasks() {
         List<Task> completedTasks = new ArrayList<>();
         for (Task task : tasks) {
