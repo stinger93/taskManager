@@ -41,6 +41,7 @@ public class TaskManager {
         return activeTasks;
     }
 
+    //список выполненых задач
     public List<Task> getCompletedTasks() {
         List<Task> completedTasks = new ArrayList<>();
         for (Task task : tasks) {
