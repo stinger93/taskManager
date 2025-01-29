@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Task {
     private int id;
     private String description;
@@ -5,7 +7,7 @@ public class Task {
 
     public Task(int id, String description) {
         this.id = id;
-        this.description = description;
+        this.description = Objects.requireNonNull(description, "Description cannot be null");
         this.isCompleted = false; // По умолчанию задача не выполнена
     }
 
